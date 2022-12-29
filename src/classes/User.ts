@@ -31,3 +31,5 @@ interface Person {
 export type User = Omit<Person, 'year' | 'speciality' | 'post'>
 export type Student = Omit<Person, 'post'>
 export type Employee = Omit<Person, 'year' | 'speciality'>
+
+export type allUsers = User | Student | Employee;

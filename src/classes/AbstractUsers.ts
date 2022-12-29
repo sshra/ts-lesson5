@@ -1,6 +1,8 @@
-import { User } from "./User";
+import { allUsers } from "./User";
 
-export abstract class AbstractUsers<T extends User> {
+export const enum sortTypes {ASC, DESC};
+
+export abstract class AbstractUsers<T extends allUsers> {
   protected userList: T[] = [];
 
   public add(user: T):this {
@@ -18,5 +20,11 @@ export abstract class AbstractUsers<T extends User> {
 
   public get(id: number): T | null {
     return this.userList.find(item => item.id === id) ?? null;
+  }
+
+  public sorted<K extends keyof T>(field: K, orderDirection: sortTypes = sortTypes.ASC):T[] {
+    return this.userList.sort((a: T, b: T) => orderDirection === sortTypes.ASC ?
+      a[field] > b[field] ? 1 : -1 :
+      a[field] > b[field] ? -1 : 1);
   }
 }

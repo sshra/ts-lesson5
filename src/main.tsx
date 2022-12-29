@@ -6,7 +6,7 @@
   log<string>('строка');
   log(5);
 
-  function log2<T>(val: T): T {
+  const log2 = <T,>(val: T): T => {
     console.log(val);
     return val;
   }

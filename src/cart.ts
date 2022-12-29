@@ -83,3 +83,5 @@ type keysOfGoods = keyof typeof goods;
 const keys: keysOfGoods = 'type';
 
 
+
+
