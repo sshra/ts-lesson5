@@ -1,4 +1,4 @@
-import { Students, Employees } from "./classes/Users";
+import { Students, Employees } from "./Users";
 
 export const employees:Employees = new Employees()
 .add({
